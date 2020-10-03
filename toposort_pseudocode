@@ -1,0 +1,47 @@
+topo_sort(N, adj[N][N])
+{
+	in_degree[N];
+	visited[N];
+
+	init(in_degree, 0);
+	init(visited, 0);
+
+	for(i=0; i<N; i++)
+	{
+		for(j=0; j<N; j++)
+		{
+			if(adj[i][j]==TRUE)
+				in_degree[j]++;
+		}
+	}
+
+	queue Q;
+	for(i=0;i<n;i++)
+	{
+		if(in_degree[i]==0)
+			Q.push(i); visited[i]=TRUE;
+
+	}
+
+	while(!Q.empty())
+	{
+		vertex v;
+		v = Q.front();
+		Q.dequeue();
+		add v to topological sort.
+		for(j=0; j<N; j++)
+		{
+			if(adj[v][j]==TRUE && visited[j]==FALSE)
+			{
+				in_degree[j]--;
+				if(in_degree[j]==0)
+				{
+					Q.push(j);
+					visited[j]=TRUE:
+				}
+
+			}
+		}
+	}
+
+}
